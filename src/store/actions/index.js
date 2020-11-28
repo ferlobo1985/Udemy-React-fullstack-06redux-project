@@ -1,8 +1,11 @@
-
+import {
+    MOVIES_LIST,
+    MOVIE_DATA
+} from '../types';
 
 export const moviesList = () => {
     return {
-        type:'MOVIES_LIST',
+        type:MOVIES_LIST,
         payload:[
             {id:1,name:'Pulp fiction'},
             {id:2,name:'Pacific Rim'},
@@ -13,7 +16,7 @@ export const moviesList = () => {
 
 export const movieData = () => {
     return {
-        type:'MOVIE_DATA',
+        type:MOVIE_DATA,
         payload:{
             id:1,
             name:'Pulp fiction',
