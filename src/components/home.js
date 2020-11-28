@@ -9,9 +9,17 @@ class Home extends Component{
     }
 
     render(){
-        console.log(this.props)
+        console.log(this.props);
+        const { movies } = this.props;
         return(
             <>
+                { movies && movies.moviesList ?
+                    movies.moviesList.map( item =>(
+                        <div key={item.name}>
+                            name: {item.name}
+                        </div>
+                    ))
+                :null}
                 <button onClick={()=> this.getMoviesHandler()}>
                     Get movies
                 </button>
@@ -20,4 +28,8 @@ class Home extends Component{
     }
 }
 
-export default connect()(Home);
+const mapStateToProps = (state) => {
+    return { movies: state.movies }
+}
+
+export default connect(mapStateToProps)(Home);
