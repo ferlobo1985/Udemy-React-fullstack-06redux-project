@@ -1,7 +1,22 @@
 import {
     MOVIES_LIST,
-    MOVIE_DATA
+    MOVIE_DATA,
+    GET_USER
 } from '../types';
+import axios from 'axios';
+
+
+export const getUser = () => {
+    const request = axios.get(`https://jsonplaceholder.typicode.com/users`)
+                    .then( response => {
+                        return response.data
+                    });
+    return {
+        type:GET_USER,
+        payload:request
+    }              
+}
+
 
 export const moviesList = () => {
     return {
